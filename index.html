@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kraft Vegan Bakery Belgrano</title>
+<title>Craft Vegan Bakery Belgrano R</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600;700&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet">
@@ -185,9 +185,9 @@
   .hero-sub-link {
     color: inherit;
     text-decoration: none;
-    transition: color .2s, letter-spacing .2s;
+    transition: color .2s, opacity .2s;
   }
-  .hero-sub-link:hover { color: var(--accent); letter-spacing: 3px; }
+  .hero-sub-link:hover { color: var(--accent); opacity: 0.75; }
 
   .hero-cta {
     position: absolute;
@@ -293,6 +293,7 @@
     aspect-ratio: 1 / 1;
     perspective: 1000px;
     cursor: pointer;
+    overflow: visible;
   }
 
   .flip-inner {
@@ -318,6 +319,7 @@
     padding: 12px;
     text-align: center;
     border-radius: 12px;
+    overflow: hidden;
   }
 
   /* Flip front con imagen */
@@ -347,8 +349,8 @@
     border-radius: 0 0 12px 12px;
     font-family: 'Montserrat', sans-serif;
     font-size: clamp(0.6rem, 0.95vw, 0.78rem);
-    font-weight: 600;
-    letter-spacing: 1.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     color: #f0d060;
     text-align: center;
@@ -537,20 +539,20 @@
 
   <div class="hero-content">
     <div class="hero-line"></div>
-    <h1 class="hero-title">Kraft Vegan Bakery Belgrano</h1>
+    <h1 class="hero-title">Craft Vegan Bakery <span style="color:#efc401">Belgrano R</span></h1>
     <div class="hero-line"></div>
     <p class="hero-sub">
       <a href="#productos" class="hero-sub-link">PRODUCTOS</a> <span>|</span> <a href="#promociones" class="hero-sub-link">PROMOCIONES</a> <span>|</span> <a href="#contacto" class="hero-sub-link">CONTACTO</a>
     </p>
-    <a class="hero-cta" href="#productos">
-      <span class="hero-cta-label">Conocé más</span>
-      <div class="hero-arrow">
-        <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6 1v10M1 6l5 5 5-5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-    </a>
   </div>
+  <a class="hero-cta" href="#productos">
+    <span class="hero-cta-label">Conocé más</span>
+    <div class="hero-arrow">
+      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 1v10M1 6l5 5 5-5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </a>
 </section>
 
 <!-- PRODUCTOS -->
