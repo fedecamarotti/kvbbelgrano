@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kraft Vegan Bakery Belgrano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600;700&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --charcoal: #1a1a1a;
+    --mid-gray: #3a3a3a;
+    --light-gray: #d8d4cc;
+    --accent: #c8a96e;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--charcoal);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    background: #2a2d32;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.7) 100%);
+    z-index: 1;
+  }
+
+  /* Swap this src when you tengas la imagen */
+  #hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* Placeholder texture while no image */
+  #hero-placeholder {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 40%, #3d4145 0%, transparent 60%),
+      radial-gradient(ellipse at 75% 60%, #2a2e33 0%, transparent 55%),
+      linear-gradient(160deg, #252830 0%, #1e2124 50%, #2c2f34 100%);
+    z-index: 0;
+  }
+
+  /* MENU */
+  #nav {
+    position: fixed;
+    top: 0; right: 0;
+    z-index: 100;
+    padding: 22px 36px;
+  }
+
+  .menu-btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    transition: opacity .2s;
+  }
+  .menu-btn:hover { opacity: 1; }
+  .menu-btn svg { width: 18px; height: 12px; }
+
+  /* Dropdown */
+  #dropdown {
+    position: fixed;
+    top: 58px;
+    right: 28px;
+    z-index: 200;
+    background: rgba(20, 22, 26, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 0;
+    min-width: 190px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  #dropdown.open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+  #dropdown a {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 13px 28px;
+    transition: background .2s, color .2s, letter-spacing .2s;
+  }
+  #dropdown a:hover {
+    background: rgba(255,255,255,0.06);
+    color: var(--white);
+    letter-spacing: 7px;
+  }
+
+  /* HERO CONTENT */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .hero-line {
+    width: 80px;
+    height: 1px;
+    background: var(--white);
+    margin: 18px auto;
+    opacity: .8;
+  }
+
+  .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.6rem, 4.5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: clamp(6px, 2vw, 14px);
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .hero-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.62rem, 1.2vw, 0.8rem);
+    font-weight: 300;
+    letter-spacing: clamp(4px, 1.5vw, 10px);
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 6px;
+  }
+  .hero-sub span { opacity: .5; }
+  .hero-sub-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color .2s, letter-spacing .2s;
+  }
+  .hero-sub-link:hover { color: var(--accent); letter-spacing: 3px; }
+
+  .hero-cta {
+    position: absolute;
+    bottom: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 2;
+  }
+
+  .hero-cta-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    font-weight: 400;
+  }
+
+  .hero-arrow {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color .3s, transform .3s;
+    animation: bob 2s ease-in-out infinite;
+  }
+  .hero-cta:hover .hero-arrow {
+    border-color: var(--white);
+    transform: translateY(3px);
+  }
+  .hero-arrow svg { width: 12px; height: 12px; opacity: .8; }
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    width: 100%;
+    padding: 90px 5%;
+  }
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.65rem, 1.1vw, 0.78rem);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: .25;
+  }
+
+  /* ── PRODUCTOS ── */
+  #productos {
+    background: var(--charcoal);
+    color: var(--white);
+  }
+
+  .flip-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .flip-grid.six-col {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .flip-grid.three-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Square flip cards via aspect-ratio */
+  .flip-card {
+    aspect-ratio: 1 / 1;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+
+  .flip-inner {
+    width: 100%; height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .55s cubic-bezier(.4,0,.2,1);
+  }
+
+  .flip-card:hover .flip-inner,
+  .flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-front, .flip-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    text-align: center;
+    border-radius: 12px;
+  }
+
+  /* Productos: front light gray, back white/black */
+  #productos .flip-front {
+    background: #b0aba3;
+    color: #555;
+  }
+
+  #productos .flip-back {
+    background: var(--white);
+    color: var(--charcoal);
+    transform: rotateY(180deg);
+  }
+
+  /* Promos: front light gray, back black/white */
+  #promociones .flip-front {
+    background: #b0aba3;
+    color: #555;
+  }
+
+  #promociones .flip-back {
+    background: var(--charcoal);
+    color: var(--white);
+    transform: rotateY(180deg);
+  }
+
+  .flip-photo-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: .6;
+  }
+
+  .flip-desc {
+    font-family: 'Raleway', sans-serif;
+    font-size: clamp(0.55rem, 0.9vw, 0.72rem);
+    font-weight: 300;
+    line-height: 1.5;
+    opacity: .85;
+  }
+
+  /* ── PROMOCIONES ── */
+  #promociones {
+    background: var(--white);
+    color: var(--charcoal);
+  }
+
+  #promociones .section-title {
+    color: var(--charcoal);
+  }
+
+  /* ── CONTACTO ── */
+  #contacto {
+    background: var(--charcoal);
+    color: var(--white);
+  }
+
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contacto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color .2s, background .2s;
+  }
+  .contact-item:hover .contact-icon {
+    border-color: var(--accent);
+    background: rgba(200,169,110,.08);
+  }
+
+  .contact-icon svg { width: 18px; height: 18px; }
+
+  .contact-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.85);
+  }
+  .contact-text a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .contact-text a:hover { color: var(--accent); }
+
+  .map-wrapper {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+    filter: grayscale(40%) contrast(0.9);
+  }
+
+  .map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  /* ── WHATSAPP FLOAT ── */
+  #wa-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 56px;
+    height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,.45);
+    z-index: 300;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+  }
+  #wa-float:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(37,211,102,.6);
+  }
+  #wa-float svg { width: 30px; height: 30px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .flip-grid.six-col { grid-template-columns: repeat(3, 1fr); }
+    .contacto-grid { grid-template-columns: 1fr; }
+    .map-wrapper { aspect-ratio: 16/9; }
+  }
+
+  @media (max-width: 560px) {
+    .flip-grid.six-col { grid-template-columns: repeat(2, 1fr); }
+    .flip-grid.three-col { grid-template-columns: repeat(1, 1fr); }
+    .hero-sub { flex-wrap: wrap; justify-content: center; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <button class="menu-btn" onclick="toggleDropdown()">
+    MENU
+    <svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line y1="1" x2="18" y2="1" stroke="white" stroke-width="1.5"/>
+      <line y1="6" x2="18" y2="6" stroke="white" stroke-width="1.5"/>
+      <line y1="11" x2="18" y2="11" stroke="white" stroke-width="1.5"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- DROPDOWN -->
+<div id="dropdown">
+  <a href="#productos" onclick="closeDropdown()">Productos</a>
+  <a href="#promociones" onclick="closeDropdown()">Promociones</a>
+  <a href="#contacto" onclick="closeDropdown()">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- Reemplazá esta línea con: <img id="hero-bg" src="image/hero.jpg" alt=""> cuando tengas la foto -->
+  <div id="hero-placeholder"></div>
+
+  <div class="hero-content">
+    <div class="hero-line"></div>
+    <h1 class="hero-title">Kraft Vegan Bakery Belgrano</h1>
+    <div class="hero-line"></div>
+    <p class="hero-sub">
+      <a href="#productos" class="hero-sub-link">PRODUCTOS</a> <span>|</span> <a href="#promociones" class="hero-sub-link">PROMOCIONES</a> <span>|</span> <a href="#contacto" class="hero-sub-link">CONTACTO</a>
+    </p>
+    <a class="hero-cta" href="#productos">
+      <span class="hero-cta-label">Conocé más</span>
+      <div class="hero-arrow">
+        <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 1v10M1 6l5 5 5-5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos">
+  <h2 class="section-title">Productos</h2>
+
+  <div class="flip-grid six-col">
+    <!-- 12 flip cards -->
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 1</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 2</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 3</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 4</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 5</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 6</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 7</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 8</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 9</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 10</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 11</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 12</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOCIONES -->
+<section id="promociones">
+  <h2 class="section-title">Promociones</h2>
+
+  <div class="flip-grid three-col">
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 1</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción promoción, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 2</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción promoción, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="flip-photo-label">Foto 3</span></div>
+        <div class="flip-back"><p class="flip-desc">Descripción promoción, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <h2 class="section-title">Contacto</h2>
+
+  <div class="contacto-grid">
+    <!-- Izquierda -->
+    <div class="contacto-info">
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <!-- WhatsApp -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.97L0 24l6.18-1.62A11.97 11.97 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.23-1.43l-.37-.22-3.67.96.98-3.58-.24-.38A9.94 9.94 0 012 12C2 6.48 6.48 2 12 2c2.67 0 5.18 1.04 7.07 2.93A9.94 9.94 0 0122 12c0 5.52-4.48 10-10 10zm5.47-7.47c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.02 1-1.02 2.43s1.04 2.82 1.19 3.02c.15.2 2.05 3.13 4.97 4.39.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.57-.34z" fill="#25D366"/>
+          </svg>
+        </div>
+        <span class="contact-text"><a href="#">11 1234-5678</a></span>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <!-- Instagram -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f09433"/>
+                <stop offset="25%" stop-color="#e6683c"/>
+                <stop offset="50%" stop-color="#dc2743"/>
+                <stop offset="75%" stop-color="#cc2366"/>
+                <stop offset="100%" stop-color="#bc1888"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#ig-grad)" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="4" stroke="url(#ig-grad)" stroke-width="1.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="url(#ig-grad)"/>
+          </svg>
+        </div>
+        <span class="contact-text"><a href="#">@kvbbelgrano</a></span>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <!-- Ubicación -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#e8453c" opacity=".9"/>
+          </svg>
+        </div>
+        <span class="contact-text">Calle Falsa 123, Belgrano, CABA</span>
+      </div>
+
+    </div>
+
+    <!-- Derecha: mapa -->
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.7258654046376!2d-58.457344!3d-34.562252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5f91e2ded5b%3A0x2d40a28e088e0ddf!2sBelgrano%2C%20CABA!5e0!3m2!1ses!2sar!4v1680000000000!5m2!1ses!2sar"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP FLOTANTE -->
+<a id="wa-float" href="#" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.97L0 24l6.18-1.62A11.97 11.97 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.23-1.43l-.37-.22-3.67.96.98-3.58-.24-.38A9.94 9.94 0 012 12C2 6.48 6.48 2 12 2c2.67 0 5.18 1.04 7.07 2.93A9.94 9.94 0 0122 12c0 5.52-4.48 10-10 10zm5.47-7.47c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.02 1-1.02 2.43s1.04 2.82 1.19 3.02c.15.2 2.05 3.13 4.97 4.39.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.57-.34z"/>
+  </svg>
+</a>
+
+<script>
+  const dropdown = document.getElementById('dropdown');
+
+  function toggleDropdown() {
+    dropdown.classList.toggle('open');
+  }
+  function closeDropdown() {
+    dropdown.classList.remove('open');
+  }
+
+  // Cerrar al hacer click afuera
+  document.addEventListener('click', function(e) {
+    if (!dropdown.contains(e.target) && !document.querySelector('.menu-btn').contains(e.target)) {
+      closeDropdown();
+    }
+  });
+</script>
+</body>
+</html>
