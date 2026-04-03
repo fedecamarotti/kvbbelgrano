@@ -192,15 +192,17 @@
   .hero-cta {
     position: absolute;
     bottom: 44px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
     cursor: pointer;
     text-decoration: none;
-    z-index: 2;
+    z-index: 3;
   }
 
   .hero-cta-label {
@@ -238,6 +240,14 @@
   section {
     width: 100%;
     padding: 90px 5%;
+  }
+
+  /* Bloques altura pantalla completa */
+  #productos, #promociones {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .section-title {
