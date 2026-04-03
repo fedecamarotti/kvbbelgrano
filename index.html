@@ -161,12 +161,13 @@
 
   .hero-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(1.6rem, 4.5vw, 3.2rem);
+    font-size: clamp(1.1rem, 3vw, 2.2rem);
     font-weight: 700;
-    letter-spacing: clamp(6px, 2vw, 14px);
+    letter-spacing: clamp(4px, 1.5vw, 10px);
     text-transform: uppercase;
     color: var(--white);
     line-height: 1.2;
+    white-space: nowrap;
   }
 
   .hero-sub {
@@ -185,9 +186,13 @@
   .hero-sub-link {
     color: inherit;
     text-decoration: none;
-    transition: color .2s, opacity .2s;
+    display: inline-block;
+    transition: color .25s, letter-spacing .25s;
   }
-  .hero-sub-link:hover { color: var(--accent); opacity: 0.75; }
+  .hero-sub-link:hover {
+    color: var(--accent);
+    letter-spacing: clamp(5px, 2vw, 12px);
+  }
 
   .hero-cta {
     position: absolute;
@@ -611,25 +616,25 @@
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><img class="flip-front-img" src="image/09.jpg" alt="Panes saborizados"><div class="flip-front-label">Panes saborizados</div></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/09.png" alt="Panes saborizados"><div class="flip-front-label">Panes saborizados</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><img class="flip-front-img" src="image/10.jpg" alt="Cositos raros"><div class="flip-front-label">Cositos raros</div></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/10.png" alt="Cositos raros"><div class="flip-front-label">Cositos raros</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><img class="flip-front-img" src="image/11.jpg" alt="Cositos más raros"><div class="flip-front-label">Cositos más raros</div></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/11.png" alt="Cositos más raros"><div class="flip-front-label">Cositos más raros</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><img class="flip-front-img" src="image/12.jpg" alt="Panes de nuevo"><div class="flip-front-label">Panes de nuevo</div></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/12.png" alt="Panes de nuevo"><div class="flip-front-label">Panes de nuevo</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
@@ -708,7 +713,7 @@
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#e8453c" opacity=".9"/>
           </svg>
         </div>
-        <span class="contact-text">Calle Falsa 123, Belgrano, CABA</span>
+        <span class="contact-text">Juramento 3111, Belgrano R, CABA</span>
       </div>
 
     </div>
@@ -716,7 +721,7 @@
     <!-- Derecha: mapa -->
     <div class="map-wrapper">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.7258654046376!2d-58.457344!3d-34.562252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5f91e2ded5b%3A0x2d40a28e088e0ddf!2sBelgrano%2C%20CABA!5e0!3m2!1ses!2sar!4v1680000000000!5m2!1ses!2sar"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26284.03894133979!2d-58.492534958846726!3d-34.566089791942936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb7a3754bb5d7%3A0xaa069f04ae12c73f!2sCraft%20Vegan%20Bakery%20Belgrano%20R!5e0!3m2!1ses!2sar!4v1775250004549!5m2!1ses!2sar"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
