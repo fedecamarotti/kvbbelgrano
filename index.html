@@ -310,10 +310,38 @@
     border-radius: 12px;
   }
 
-  /* Productos: front light gray, back white/black */
+  /* Flip front con imagen */
   #productos .flip-front {
     background: #b0aba3;
     color: #555;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .flip-front-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+  }
+
+  .flip-front-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 10px 10px;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+    border-radius: 0 0 12px 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.6rem, 0.95vw, 0.78rem);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #f0d060;
+    text-align: center;
   }
 
   #productos .flip-back {
@@ -523,73 +551,73 @@
     <!-- 12 flip cards -->
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 1</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/01.jpg" alt="Café especialidad"><div class="flip-front-label">Café especialidad</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 2</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/02.jpg" alt="Panes caseros"><div class="flip-front-label">Panes caseros</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 3</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/03.jpg" alt="Medialunas"><div class="flip-front-label">Medialunas</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 4</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/04.jpg" alt="Budines"><div class="flip-front-label">Budines</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 5</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/05.jpg" alt="Galletitas"><div class="flip-front-label">Galletitas</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 6</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/06.jpg" alt="Cremona"><div class="flip-front-label">Cremona</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 7</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/07.jpg" alt="Baguettes"><div class="flip-front-label">Baguettes</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 8</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/08.jpg" alt="Pan de campo"><div class="flip-front-label">Pan de campo</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 9</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/09.jpg" alt="Panes saborizados"><div class="flip-front-label">Panes saborizados</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 10</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/10.jpg" alt="Cositos raros"><div class="flip-front-label">Cositos raros</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 11</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/11.jpg" alt="Cositos más raros"><div class="flip-front-label">Cositos más raros</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front"><span class="flip-photo-label">Foto 12</span></div>
+        <div class="flip-front"><img class="flip-front-img" src="image/12.jpg" alt="Panes de nuevo"><div class="flip-front-label">Panes de nuevo</div></div>
         <div class="flip-back"><p class="flip-desc">Descripción producto, detalles, ingredientes, cantidad, y demás información que pueda sumar a la descripción</p></div>
       </div>
     </div>
