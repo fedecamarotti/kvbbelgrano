@@ -502,6 +502,8 @@
   }
   #wa-float svg { width: 30px; height: 30px; }
 
+  .mobile-br { display: none; }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .flip-grid.six-col { grid-template-columns: repeat(3, 1fr); }
@@ -512,7 +514,28 @@
   @media (max-width: 560px) {
     .flip-grid.six-col { grid-template-columns: repeat(2, 1fr); }
     .flip-grid.three-col { grid-template-columns: repeat(1, 1fr); }
-    .hero-sub { flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+    #hero { height: 100svh; min-height: unset; }
+
+    .mobile-br { display: block; }
+    .hero-content { text-align: center; }
+
+    /* Título en dos líneas en mobile */
+    .hero-title {
+      white-space: normal;
+      text-align: center;
+      font-size: clamp(1.1rem, 5vw, 1.6rem);
+      letter-spacing: clamp(3px, 2vw, 7px);
+    }
+
+    /* Subtítulo más pequeño para que entre en pantalla */
+    .hero-sub {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.52rem;
+      letter-spacing: 3px;
+    }
   }
 </style>
 </head>
@@ -544,7 +567,7 @@
 
   <div class="hero-content">
     <div class="hero-line"></div>
-    <h1 class="hero-title">Craft Vegan Bakery <span style="color:#efc401">Belgrano R</span></h1>
+    <h1 class="hero-title">Craft Vegan Bakery<br class="mobile-br"> <span style="color:#efc401" class="belgrano-r">Belgrano R</span></h1>
     <div class="hero-line"></div>
     <p class="hero-sub">
       <a href="#productos" class="hero-sub-link">PRODUCTOS</a> <span>|</span> <a href="#promociones" class="hero-sub-link">PROMOCIONES</a> <span>|</span> <a href="#contacto" class="hero-sub-link">CONTACTO</a>
